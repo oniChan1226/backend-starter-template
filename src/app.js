@@ -20,6 +20,11 @@ app.use(express.json({ limit: "20kb" }));
 app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 app.use(cookieParser());
 
+// routes
+import authRoutes from "./routes/auth.routes.js"
+
+app.use("/api/v1/auth", authRoutes);
+
 app.get("/", (req, res) => {
     res.send("Welcome...");
 });
